@@ -11,7 +11,7 @@ const randomNumbers = [10, 30, 15, 25, 50, 40, 5]
 
 const numbersOdd = randomNumbers.filter(number => number % 2 !== 0)
 
-console.log(numbersOdd)
+//console.log(numbersOdd)
 
 /*
   02
@@ -21,9 +21,10 @@ console.log(numbersOdd)
 
 const crazyNumbers = [937, 5, 395, 402, 501, 333, 502, 781, 3, 691]
 
-const below501 = crazyNumbers.filter(number => number < 501).length
+const below501 = crazyNumbers.reduce((acc,number) => 
+number < 501 ? acc + 1 : acc, 0)
 
-console.log(below501)
+//console.log(below501)
 
 /*
   03
@@ -36,9 +37,9 @@ console.log(below501)
 
 const numbers = [5, 7, 3]
 
-const squaredNumbers = numbers.map(number => number *4)
+const squaredNumbers = numbers.map(number => number ** 2)
 
-console.log(squaredNumbers)
+//console.log(squaredNumbers)
 
 /*
   04
@@ -61,13 +62,9 @@ const tarantinoMovies = [
   { name: 'Kill Bill: Volume 1', release: 2003 }
 ]
 
-const before2000 = tarantinoMovies.filter((movie) => {
-  if(movie.release < 2000){
-    return movie.name
-  }
-})
+const before2000 = tarantinoMovies.filter((movie) => movie.release < 2000)
 
-console.log(before2000)
+//console.log(before2000)
 
 /*
   05
@@ -88,7 +85,7 @@ const tvShows = [
 
 const onlyNames = tvShows.map(show => show.name)
 
-console.log(onlyNames)
+//console.log(onlyNames)
 
 /*
   06
@@ -109,9 +106,11 @@ const cart = [
   { name: 'Death Stranding', price: 149.99 }
 ]
 
-const gameName = cart.map(game => `- ${game.name}`)
+const gameName = cart.reduce((acc,game) => {
+  return `${acc}- ${game.name}\n`
+},'')
 
-console.log(gameName)
+//console.log(gameName)
 
 /*
 - Nome 1
